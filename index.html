@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>روابط بومدين</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #eff7f2;
+      font-family: "Lato", sans-serif;
+      direction: rtl;
+    }
+
+    .user-card {
+      width: 300px;
+      box-shadow: -10px 5px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      overflow: hidden;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20px;
+      transition: box-shadow 0.2s ease-in;
+    }
+
+    .user-card:hover {
+      box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .user-cover {
+      height: 150px;
+      width: 100%;
+      position: relative;
+      background-image: url(https://i.postimg.cc/vZHZPjy9/website-design-patterns-1100x500-768x349.png);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .user-avatar {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: -35px;
+      border: 2px solid #fff;
+      object-fit: cover;
+    }
+
+    .user-details {
+      text-align: center;
+      margin-top: 40px;
+      width: 80%;
+    }
+
+    .user-name {
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .user-email {
+      font-size: 14px;
+      color: #0f5fc0;
+      font-weight: 500;
+    }
+
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 25px 0 10px;
+      width: 80%;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      padding: 10px;
+      background-color: #035f7d;
+      color: white;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background-color: #0284a2;
+    }
+  </style>
+</head>
+<body>
+  <div class="user-card">
+    <div class="user-cover">
+      <img class="user-avatar" src="https://i.postimg.cc/CMs0WNm4/ooo-pica.png" />
+    </div>
+    <div class="user-details">
+      <div class="user-name">belarbi boumediene</div>
+      <div class="user-email">Application Developer and UI Designer</div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=100054458173549" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/Bel_arbi_13" target="_blank">Instagram</a>
+      <a href="mailto:boumedienebelarbi58@gmail.com">Contact me</a>
+    </div>
+  </div>
+</body>
+</html>
