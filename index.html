@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>روابط بومدين</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belarbi Boumediene</title>
+   <link rel="icon" href="https://i.postimg.cc/vHcvdh5V/lien.png" type="image/png" />
+
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
+    .loader {
+      display: inline-block;     
+      width: 150px;
+      height: 150px;
+      background-color: #006eff;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
+                  0 5px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .loader::before,
+    .loader::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 45%;
+      top: -40%;
+      background-color: #fff;
+      animation: wave 5s linear infinite;
+    }
+
+    .loader::before {
+      border-radius: 30%;
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    @keyframes wave {
+      0%   { transform: rotate(0deg);   }
+      100% { transform: rotate(360deg); }
+    }
+
+
+   @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
     * {
       box-sizing: border-box;
@@ -21,6 +59,8 @@
       background: #eff7f2;
       font-family: "Lato", sans-serif;
       direction: rtl;
+            background-color: rgb(183, 255, 231);
+
     }
 
     .user-card {
@@ -29,7 +69,7 @@
       border-radius: 15px;
       overflow: hidden;
       background: white;
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       padding-bottom: 20px;
@@ -78,7 +118,10 @@
       font-size: 14px;
       color: #0f5fc0;
       font-weight: 500;
+           
+
     }
+
 
     .social-links {
       display: flex;
@@ -103,16 +146,56 @@
     .social-links a:hover {
       background-color: #0284a2;
     }
+
+.date{
+  font-size:15px;
+  font-weight:bold;
+  background:linear-gradient(90deg,#8fd7ff,#006eff,#003e9f);
+  background-size:300% auto;
+  color:transparent;
+  -webkit-background-clip:text;
+          background-clip:text;
+
+  animation:blueFlow 6s linear infinite alternate;
+}
+@keyframes blueFlow{
+  from{background-position:0% center;}
+  to  {background-position:100% center;}
+}
+
+.status-dot{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #00d900;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  top: 150px;   
+  right: 100px;
+  box-shadow: 0 0 6px #00d900;
+
+}
+
+
+
   </style>
 </head>
+
 <body>
-  <div class="user-card">
+  <span class="loader"></span>
+
+
+ <div class="user-card">
     <div class="user-cover">
       <img class="user-avatar" src="https://i.postimg.cc/CMs0WNm4/ooo-pica.png" />
+      <span class="status-dot"></span>
+
     </div>
+
+
     <div class="user-details">
-      <div class="user-name">belarbi boumediene</div>
-      <div class="user-email">Application Developer and UI Designer</div>
+      <div class="user-name">Belarbi Boumediene</div>
+      <div class="user-email">___________________________________________</div>
     </div>
 
     <div class="social-links">
@@ -120,6 +203,34 @@
       <a href="https://www.instagram.com/Bel_arbi_13" target="_blank">Instagram</a>
       <a href="mailto:boumedienebelarbi58@gmail.com">Contact me</a>
     </div>
+    <br>
+    <br>
+
+    <h5 class="date"> 2025 / 2026</h5>
   </div>
+
+
 </body>
+
+<script>
+  setTimeout(() => {
+    const loader = document.querySelector('.loader');
+    loader.style.display = 'none'; 
+
+  const a = document.querySelector('.user-card');
+    
+
+a.style.display = 'flex';
+
+
+  }, 3000);
+
+
+
+
+const dateEl = document.querySelector('.date');
+const y = new Date().getFullYear();
+dateEl.textContent = `${y} / ${y + 1}`;
+
+</script>
 </html>
