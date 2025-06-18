@@ -1,236 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Belarbi Boumediene</title>
-   <link rel="icon" href="https://i.postimg.cc/vHcvdh5V/lien.png" type="image/png" />
-
-  <style>
-
-    .loader {
-      display: inline-block;     
-      width: 150px;
-      height: 150px;
-      background-color: #006eff;
-      border-radius: 50%;
-      position: relative;
-      box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
-                  0 5px 12px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-    }
-
-    .loader::before,
-    .loader::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 45%;
-      top: -40%;
-      background-color: #fff;
-      animation: wave 5s linear infinite;
-    }
-
-    .loader::before {
-      border-radius: 30%;
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    @keyframes wave {
-      0%   { transform: rotate(0deg);   }
-      100% { transform: rotate(360deg); }
-    }
-
-
-   @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #eff7f2;
-      font-family: "Lato", sans-serif;
-      direction: rtl;
-            background-color: rgb(183, 255, 231);
-
-    }
-
-    .user-card {
-      width: 300px;
-      box-shadow: -10px 5px 20px rgba(0, 0, 0, 0.3);
-      border-radius: 15px;
-      overflow: hidden;
-      background: white;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 20px;
-      transition: box-shadow 0.2s ease-in;
-    }
-
-    .user-card:hover {
-      box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .user-cover {
-      height: 150px;
-      width: 100%;
-      position: relative;
-      background-image: url(https://i.postimg.cc/vZHZPjy9/website-design-patterns-1100x500-768x349.png);
-      background-position: center;
-      background-size: cover;
-    }
-
-    .user-avatar {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      left: 0;
-      right: 0;
-      margin: auto;
-      bottom: -35px;
-      border: 2px solid #fff;
-      object-fit: cover;
-    }
-
-    .user-details {
-      text-align: center;
-      margin-top: 40px;
-      width: 80%;
-    }
-
-    .user-name {
-      margin-bottom: 10px;
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    .user-email {
-      font-size: 14px;
-      color: #0f5fc0;
-      font-weight: 500;
-           
-
-    }
-
-
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 25px 0 10px;
-      width: 80%;
-    }
-
-    .social-links a {
-      text-decoration: none;
-      padding: 10px;
-      background-color: #035f7d;
-      color: white;
-      border-radius: 5px;
-      font-size: 15px;
-      font-weight: bold;
-      text-align: center;
-      transition: background 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background-color: #0284a2;
-    }
-
-.date{
-  font-size:15px;
-  font-weight:bold;
-  background:linear-gradient(90deg,#8fd7ff,#006eff,#003e9f);
-  background-size:300% auto;
-  color:transparent;
-  -webkit-background-clip:text;
-          background-clip:text;
-
-  animation:blueFlow 6s linear infinite alternate;
-}
-@keyframes blueFlow{
-  from{background-position:0% center;}
-  to  {background-position:100% center;}
-}
-
-.status-dot{
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background: #00d900;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  top: 150px;   
-  right: 100px;
-  box-shadow: 0 0 6px #00d900;
-
-}
-
-
-
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belarbi Boumediene</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="icon" href="https://i.postimg.cc/vHcvdh5V/lien.png" type="image/png" />
 </head>
 
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.contaner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dde1e7;
+}
+
+.contaner .box{
+    width: 350px;
+    height: 450px;
+    padding: 20px;
+    background: #dde1e7;
+    border-radius: 8px;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+}
+
+.contaner .box .image{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 15px;
+    margin: 0 auto 20px auto;
+    background: #dde1e7;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+}
+
+.contaner .box .image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.contaner .box h2{
+    text-align: center;
+    margin: 8px 0;
+}
+
+.contaner .box p.bio{
+    text-align: center;
+}
+
+.contaner .box .social_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.contaner .box .social_icon .s_img{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 50%;
+    margin: 10px 8px;
+    cursor: pointer;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);    
+}
+
+.contaner .box .social_icon .s_img img{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    margin: 5px auto;
+}
+
+.contaner .box .button{
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contaner .box .button .message{
+    width: 130px;
+    height: 40px;
+    font-size: 17px;
+    padding: 5px;
+    background: #dde1e7;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+}
+
+.contaner .box .button .subs{
+    width: 130px;
+    height: 40px;
+    font-size: 17px;
+    padding: 5px;
+    background: #dde1e7;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    box-shadow: -3px -3px 7px #ffffff73 , 3px 3px 5px rgba(94,104,121,0.288);
+}
+
+.contaner .box .likes{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.contaner .box .likes button{
+    width: 100px;
+    height: 20px;
+    background: none;
+}
+
+.contaner .box .likes button i{
+    margin-right: 8px;
+}
+
+.contaner .box .likes .like , .comment{
+    border-right: 1px solid #919191;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+    color: #645c5c;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contaner .box .likes .share{
+    border: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #645c5c;
+}
+
+
+
+
+#likeBtn{
+    position: relative;         
+    overflow: visible;           
+    cursor: pointer;
+}
+
+#likeBtn i{
+    transition: color 0.3s;
+}
+#likeBtn.liked i{
+    color: #ff2d55;             
+}
+
+
+.heart-pop{
+    position: absolute;
+    top: 50%; left: 50%;
+    font-size: 14px;
+    color: #ff2d55;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: floatHeart 1s ease-out forwards;
+}
+
+
+@keyframes floatHeart{
+    0%   { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+    100% { transform: translate(-50%, -150%) scale(0.4) rotate(45deg); opacity: 0;}
+}
+
+</style>
+
+
+
 <body>
-  <span class="loader"></span>
 
+    <div class="contaner">
 
- <div class="user-card">
-    <div class="user-cover">
-      <img class="user-avatar" src="https://i.postimg.cc/CMs0WNm4/ooo-pica.png" />
-      <span class="status-dot"></span>
+        <div class="box">
 
+            <div class="image">
+                <img src="https://i.postimg.cc/CMs0WNm4/ooo-pica.png">
+            </div>
+
+            <h2>Belarbi Boumediene</h2>
+            <p class="bio">Welcome to my personal page</p>
+
+      <div class="social_icon">
+
+    <div class="s_img" id="facebook">
+        <img src="image/facebook.png">
+    </div>
+    <div class="s_img" id="instagram">
+        <img src="image/instergram.png">
+    </div>
+    <div class="s_img" id="twitter">
+        <img src="image/twitter.png">
+    </div>
+    <div class="s_img" id="gmail">
+        <img src="image/gmail.png">
     </div>
 
+</div>
 
-    <div class="user-details">
-      <div class="user-name">Belarbi Boumediene</div>
-      <div class="user-email"><br><br></div>
+
+            <div class="button">
+
+                <button class="message" id="msg">Message</button>
+                <button class="subs">Subscribe</button>
+
+            </div>
+
+            <div class="likes">
+
+<button class="like" id="likeBtn">
+    <i class="fa-solid fa-heart"></i>
+    <p>325</p>
+</button>
+
+
+                <button class="comment">
+                    <i class="fa-solid fa-comment"></i>
+                    <p>7</p>
+                </button>
+
+                <button class="share">
+                    <i class="fa-solid fa-share"></i>
+                    <p>0</p>
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="social-links">
-      <a href="https://www.facebook.com/profile.php?id=100054458173549" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/Bel_arbi_13" target="_blank">Instagram</a>
-      <a href="mailto:boumedienebelarbi58@gmail.com">Contact me</a>
-    </div>
-    <br>
-    <br>
-
-    <h5 class="date"> 2025 / 2026</h5>
-  </div>
-
-
+    
 </body>
 
 <script>
-  setTimeout(() => {
-    const loader = document.querySelector('.loader');
-    loader.style.display = 'none'; 
+  document.getElementById("facebook").onclick = function () {
+    window.open("https://www.facebook.com/profile.php?id=100054458173549", "_blank");
+  };
 
-  const a = document.querySelector('.user-card');
-    
+  document.getElementById("instagram").onclick = function () {
+    window.open("https://www.instagram.com/Bel_arbi_13", "_blank");
+  };
 
-a.style.display = 'flex';
+  document.getElementById("twitter").onclick = function () {
+    window.open("https://x.com/Bel_Boumediene", "_blank");
+  };
+
+  document.getElementById("gmail").onclick = function () {
+    window.location.href = "mailto:boumedienebelarbi58@gmail.com";
+  };
+
+  document.getElementById("msg").onclick = function () {
+    window.location.href = "mailto:boumedienebelarbi58@gmail.com";
+  };
 
 
-  }, 3000);
+
+const likeBtn  = document.getElementById('likeBtn');
+const likeText = likeBtn.querySelector('p');
+
+likeBtn.addEventListener('click', () => {
+  if (likeBtn.classList.contains('liked')) return;
 
 
+  likeBtn.classList.add('liked');
 
 
-const dateEl = document.querySelector('.date');
-const y = new Date().getFullYear();
-dateEl.textContent = `${y} / ${y + 1}`;
+  likeText.textContent = parseInt(likeText.textContent) + 1;
+
+
+  for (let i = 0; i < 6; i++){
+    createFloatingHeart();
+  }
+});
+
+function createFloatingHeart(){
+  const heart = document.createElement('i');
+  heart.className = 'fa-solid fa-heart heart-pop';
+
+  const randX = (Math.random() * 60) - 30;   
+  const randScale = Math.random() * 0.5 + 0.8; 
+  heart.style.transform = `translate(${randX}%, -50%) scale(${randScale})`;
+  likeBtn.appendChild(heart);
+
+ 
+  setTimeout(() => heart.remove(), 1000);
+}
+
 
 </script>
 </html>
