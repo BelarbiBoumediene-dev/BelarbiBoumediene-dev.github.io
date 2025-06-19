@@ -149,7 +149,7 @@
     justify-content: center;
 }
 
-.contaner .box .likes .share{
+.contaner .box .likes {
     border: 0;
     font-size: 16px;
     display: flex;
@@ -191,6 +191,106 @@
     100% { transform: translate(-50%, -150%) scale(0.4) rotate(45deg); opacity: 0;}
 }
 
+
+
+
+.share {
+  border: 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+color: #64f37c;
+
+
+}
+
+
+
+
+/* Share Button Style */
+.share-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.share-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Pop-Up Style */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: #ffffffdd;
+  padding: 25px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-content h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.share-links a {
+  display: block;
+  margin: 8px 0;
+  padding: 10px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.share-links a:hover {
+  background: #2575fc;
+  color: white;
+}
+
+.close-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background: #d8a39f;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.close-btn:hover {
+  background: #d32f2f;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+
+
+
+
 </style>
 
 
@@ -200,6 +300,30 @@
     <div class="contaner">
 
         <div class="box">
+
+
+
+
+
+<div id="sharePopup" class="popup-overlay">
+  <div class="popup-content">
+    <h3>Share this page</h3>
+    <div class="share-links">
+      <a href="https://wa.me/?text=Check%20this%20page:%20https://belarbiboumediene-dev.github.io" target="_blank"> WhatsApp</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://belarbiboumediene-dev.github.io" target="_blank"> Facebook</a>
+      <a href="https://twitter.com/intent/tweet?url=https://belarbiboumediene-dev.github.io&text=Check%20this%20page!" target="_blank"> Twitter</a>
+      <a href="sms:?body=Check%20this%20page:%20https://belarbiboumediene-dev.github.io">SMS</a>
+      <a href="#" onclick="copyLink()">Copy Link</a>
+    </div>
+    <button class="close-btn" onclick="closeSharePopup()"> Close</button>
+  </div>
+</div>
+
+
+<!--<img src="https://visitor-badge.laobi.icu/badge?page_id=BelarbiBoumediene-dev.visitor" alt="Visitors" >-->
+  <div id="visitorContainer"></div>
+
+
 
             <div class="image">
                 <img src="https://i.postimg.cc/CMs0WNm4/ooo-pica.png">
@@ -237,7 +361,7 @@
 
 <button class="like" id="likeBtn">
     <i class="fa-solid fa-heart"></i>
-    <p>325</p>
+    <p>15</p>
 </button>
 
 
@@ -246,9 +370,8 @@
                     <p>7</p>
                 </button>
 
-                <button class="share">
+                <button class="share" onclick="openSharePopup()">
                     <i class="fa-solid fa-share"></i>
-                    <p>0</p>
                 </button>
 
             </div>
@@ -281,9 +404,9 @@
   };
 
 
-
 const likeBtn  = document.getElementById('likeBtn');
 const likeText = likeBtn.querySelector('p');
+
 
 likeBtn.addEventListener('click', () => {
   if (likeBtn.classList.contains('liked')) return;
@@ -313,6 +436,28 @@ function createFloatingHeart(){
   setTimeout(() => heart.remove(), 1000);
 }
 
+ const hasVisited = sessionStorage.getItem("visited");
+  if (!hasVisited) {
+    const img = document.createElement("img");
+    img.src = "https://visitor-badge.laobi.icu/badge?page_id=BelarbiBoumediene-dev.visitor";
+    img.alt = "Visitors";
+    document.getElementById("visitorContainer").appendChild(img);
+    sessionStorage.setItem("visited", "true");
+  }
+
+  function openSharePopup() {
+    document.getElementById("sharePopup").style.display = "flex";
+  }
+
+  function closeSharePopup() {
+    document.getElementById("sharePopup").style.display = "none";
+  }
+
+  function copyLink() {
+    navigator.clipboard.writeText("https://belarbiboumediene-dev.github.io")
+      .then(() => alert(" Link copied!"))
+      .catch(() => alert(" Failed to copy"));
+  }
 
 </script>
 </html>
