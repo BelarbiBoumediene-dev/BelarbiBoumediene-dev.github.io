@@ -12,6 +12,195 @@
 
 <style>
 
+
+/*
+
+.toggle-btn {
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #333;
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.toggle-btn:hover {
+  background: #54a0ff;
+  color: white;
+  box-shadow: 0 0 10px #54a0ff, 0 0 20px #54a0ff;
+}
+
+
+body.dark-mode .toggle-btn {
+  background: #333;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(84, 160, 255, 0.3);
+}
+*/
+
+
+
+.toggle-btn {
+  top: 20px;
+  right: 20px;
+
+  width: 52px;
+  height: 28px;
+  border: none;
+  border-radius: 999px;
+  background: #d1d1d1;
+  cursor: pointer;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+  z-index: 999;
+  padding: 0;
+}
+.toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.toggle-btn:hover::before {
+  box-shadow: 0 0 6px #54a0ff, 0 0 10px #54a0ff;
+}
+
+
+body.dark-mode .toggle-btn {
+  background: #4a4a4a;
+}
+
+body.dark-mode .toggle-btn::before {
+  transform: translateX(24px);
+  background: #54a0ff;
+}
+
+
+.toggle-btn {
+  overflow: hidden; 
+}
+
+.toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 1;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode .toggle-btn {
+  background: #333;
+  color: #fff;
+}
+
+
+body.dark-mode .contaner .box .social_icon .s_img {
+    background: #1f1f1f;
+    box-shadow:
+        -2px -2px 6px rgba(255, 255, 255, 0.05),
+        2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+
+
+body.dark-mode .contaner {
+    background: #1a1a1a;
+}
+
+body.dark-mode .contaner .box {
+    background: #1f1f1f;
+    box-shadow:
+        -3px -3px 7px rgba(255, 255, 255, 0.05),
+         3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .contaner .box .image {
+    background: #1f1f1f;
+    box-shadow:
+        -3px -3px 7px rgba(255, 255, 255, 0.05),
+         3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .contaner .box .button .message,
+body.dark-mode .contaner .box .button .subs {
+    background: #1f1f1f;
+    color: #eee;
+    box-shadow:
+        -3px -3px 6px rgba(255, 255, 255, 0.05),
+         3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .contaner .box .button .message:hover,
+body.dark-mode .contaner .box .button .subs:hover {
+    box-shadow:
+        0 0 8px #54a0ff,
+        0 0 16px #54a0ff;
+    color: #fff;
+}
+
+
+.contaner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dde1e7;
+    transition: background 0.3s ease;
+}
+
+.contaner .box {
+    width: 350px;
+    height: 450px;
+    padding: 20px;
+    background: #dde1e7;
+    border-radius: 8px;
+    box-shadow:
+        -3px -3px 7px #ffffff73,
+         3px 3px 5px rgba(94, 104, 121, 0.288);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contaner .box .image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 15px;
+    margin: 0 auto 20px auto;
+    background: #dde1e7;
+    box-shadow:
+        -3px -3px 7px #ffffff73,
+         3px 3px 5px rgba(94, 104, 121, 0.288);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -55,6 +244,7 @@
 }
 
 
+
  .contaner .box .image{
         position:relative;            
         width:150px;
@@ -62,7 +252,6 @@
         border-radius:50%;
         overflow:hidden;
     }
-
 
     .contaner .box .image::before{
         content:'';
@@ -78,7 +267,6 @@
     #89CFF0,
     #AFCBFF
 );
-
 
         -webkit-mask:
             linear-gradient(#fff 0 0) content-box,
@@ -204,14 +392,11 @@
 }
 
 
-
-
 #likeBtn{
     position: relative;         
     overflow: visible;           
     cursor: pointer;
 }
-
 
 #likeBtn i{
     transition: color 0.3s;
@@ -238,8 +423,6 @@
 }
 
 
-
-
 .share {
   border: 0;
     font-size: 16px;
@@ -248,19 +431,58 @@
     justify-content: center;
 color: #64f37c;
 
-
 }
-
 
 .share:hover{
     transform:scale(1.15);     
 }
+body.dark-mode .share-btn {
+
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f5f5f5;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .share-btn:hover {
+  transform: scale(1.05);
+}
+
+/* خفِّف شفافية الطبقة ثم غيّر درجة التعتيم */
+body.dark-mode .popup-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
 
 
+body.dark-mode .popup-content {
+  background: #1e1e1edb;  
+  color: #e0e0e0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
 
+body.dark-mode .popup-content h3 {
+  color: #f1f1f1;
+}
 
+/* روابط المشاركة */
+body.dark-mode .share-links a {
+  background: #2c2c2c;
+  color: #e3e3e3;
+}
 
+body.dark-mode .share-links a:hover {
+  background: #1976d2; /* أزرق فاتح واضح */
+  color: #fff;
+}
 
+body.dark-mode .close-btn {
+  background: #555;
+  color: #fff;
+}
+
+body.dark-mode .close-btn:hover {
+  background: #c62828;
+}
 
 .share-btn {
   padding: 10px 20px;
@@ -338,11 +560,81 @@ color: #64f37c;
   from { opacity: 0; transform: scale(0.9); }
   to   { opacity: 1; transform: scale(1); }
 }
+.switch-button {
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+}
+
+.switch-button .switch-outer {
+  height: 22px;
+  background: #252532;
+  width: 50px;
+  border-radius: 15px;
+  box-shadow: inset 0px 5px 10px 0px #16151c, 0px 3px 6px -2px #403f4e;
+  border: 1px solid #32303e;
+  padding: 3px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+
+.switch-button .switch-outer input[type="checkbox"] {
+  opacity: 0;
+  appearance: none;
+  position: absolute;
+}
+
+.switch-button .switch-outer .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.switch-button .switch-outer .button-toggle{
+  
+  height:21px;
+  width:50%;
+  border-radius:50%;
+  background:#2575fc;
+  box-shadow:inset 0 3px 4px #424151,0 4px 10px #0f0e17;
+  position:absolute;
+  left:0%;
+  bottom: 0%;
+  transform:translate(-0%, -27%);
+  transition:left .3s ease;
+  z-index:1;
+}
+
+.switch-button .switch-outer .button-toggle::before{
+  content:"☀️";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:13px;           
+  line-height:1;
+}
 
 
+.switch-button
+  .switch-outer
+  input[type="checkbox"]:checked
+  + .button
+  .button-toggle{
+  left:calc(100% - 23px);
+    background-color: #ffffff;
+}
 
-
-
+.switch-button
+  .switch-outer
+  input[type="checkbox"]:checked
+  + .button
+  .button-toggle::before{
+  content:"🌙";
+}
 
 
 </style>
@@ -355,7 +647,15 @@ color: #64f37c;
 
         <div class="box">
 
-
+<label class="switch-button" for="switch">
+  <div class="switch-outer">
+    <input id="switch" type="checkbox">
+    <div class="button">
+      <span class="button-toggle"></span>
+      <span class="button-indicator"></span>
+    </div>
+  </div>
+</label>
 
 
 
@@ -437,6 +737,20 @@ color: #64f37c;
 </body>
 
 <script>
+
+
+ const switchInput = document.getElementById('switch');
+
+  switchInput.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
+
+    const emoji = switchInput.checked ? '☀️' : '🌙';
+
+    console.log("Current Mode:", emoji);
+  });
+
+
+
   document.getElementById("facebook").onclick = function () {
     window.open("https://www.facebook.com/profile.php?id=61577435015384", "_blank");
   };
@@ -505,6 +819,15 @@ function createFloatingHeart(){
     sessionStorage.setItem("visited", "true");
   }
 
+
+
+
+
+
+
+
+
+
   function openSharePopup() {
     document.getElementById("sharePopup").style.display = "flex";
   }
@@ -518,6 +841,21 @@ function createFloatingHeart(){
       .then(() => alert(" Link copied!"))
       .catch(() => alert(" Failed to copy"));
   }
+
+
+
+const toggleBtn = document.getElementById('darkModeToggle');
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+ 
+    if (document.body.classList.contains('dark-mode')) {
+      toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
+  });
 
 </script>
 </html>
