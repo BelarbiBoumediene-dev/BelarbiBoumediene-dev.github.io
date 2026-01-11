@@ -573,7 +573,7 @@ body.dark-mode .close-btn:hover {
 
 .switch-button .switch-outer {
   height: 22px;
-  background: #252532;
+  background: #2f25ff;
   width: 50px;
   border-radius: 15px;
   box-shadow: inset 0px 5px 10px 0px #16151c, 0px 3px 6px -2px #403f4e;
@@ -583,6 +583,19 @@ body.dark-mode .close-btn:hover {
   cursor: pointer;
   position: relative;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .switch-button .switch-outer input[type="checkbox"] {
   opacity: 0;
@@ -600,14 +613,14 @@ body.dark-mode .close-btn:hover {
 
 .switch-button .switch-outer .button-toggle{
   
-  height:21px;
-  width:50%;
+  height:19px;
+  width:49%;
   border-radius:50%;
-  background:#2575fc;
+  background:#ffffff;
   box-shadow:inset 0 3px 4px #424151,0 4px 10px #0f0e17;
   position:absolute;
-  left:0%;
-  bottom: 0%;
+  left:0px;
+  top:-51%;
   transform:translate(-0%, -27%);
   transition:left .3s ease;
   z-index:1;
@@ -720,13 +733,13 @@ body.dark-mode .close-btn:hover {
 
 <button class="like" id="likeBtn">
     <i class="fa-solid fa-heart"></i>
-    <p>325</p>
+    <p></p>
 </button>
 
 
                 <button class="comment">
                     <i class="fa-solid fa-comment"></i>
-                    <p>7</p>
+                    <p></p>
                 </button>
 
                 <button class="share" onclick="openSharePopup()">
@@ -778,24 +791,9 @@ body.dark-mode .close-btn:hover {
 
 
 const likeBtn  = document.getElementById('likeBtn');
-const likeText = likeBtn.querySelector('p');
-
-
-
-
-
-
-
 
 likeBtn.addEventListener('click', () => {
-  if (likeBtn.classList.contains('liked')) return;
-
-
   likeBtn.classList.add('liked');
-
-
-  likeText.textContent = parseInt(likeText.textContent) + 1;
-
 
   for (let i = 0; i < 6; i++){
     createFloatingHeart();
@@ -806,14 +804,41 @@ function createFloatingHeart(){
   const heart = document.createElement('i');
   heart.className = 'fa-solid fa-heart heart-pop';
 
-  const randX = (Math.random() * 60) - 30;   
-  const randScale = Math.random() * 0.5 + 0.8; 
-  heart.style.transform = `translate(${randX}%, -50%) scale(${randScale})`;
+  // ألوان عشوائية
+  const colors = ['#ff4d4d', '#ff66cc', '#ff9933', '#66ccff', '#cc66ff'];
+  heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+  // موقع وحجم عشوائي
+  const randX = (Math.random() * 60) - 30 + 'px';
+  const randScale = (Math.random() * 0.5 + 0.8);
+  heart.style.setProperty('--randX', randX);
+  heart.style.setProperty('--randScale', randScale);
+
+  // إضافة القلب إلى الزر
   likeBtn.appendChild(heart);
 
- 
+  // حذف القلب عند النقر عليه
+  heart.addEventListener('click', () => heart.remove());
+
+  // إزالة القلب بعد انتهاء الحركة
   setTimeout(() => heart.remove(), 1000);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  const hasVisited = sessionStorage.getItem("visited");
   if (!hasVisited) {
@@ -864,6 +889,5 @@ const toggleBtn = document.getElementById('darkModeToggle');
 
 </script>
 </html>
-
 
 
