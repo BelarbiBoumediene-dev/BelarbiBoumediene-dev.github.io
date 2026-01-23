@@ -452,7 +452,6 @@ body.dark-mode .share-btn:hover {
   transform: scale(1.05);
 }
 
-/* خفِّف شفافية الطبقة ثم غيّر درجة التعتيم */
 body.dark-mode .popup-overlay {
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
@@ -476,7 +475,7 @@ body.dark-mode .share-links a {
 }
 
 body.dark-mode .share-links a:hover {
-  background: #1976d2; /* أزرق فاتح واضح */
+  background: #1976d2;
   color: #fff;
 }
 
@@ -693,7 +692,7 @@ body.dark-mode .close-btn:hover {
   z-index: 10;
 }
 
-/* ✨ حركة بسيطة تجذب الانتباه */
+
 #visitor-count:hover {
   transform: scale(1.07);
   box-shadow:
@@ -701,7 +700,7 @@ body.dark-mode .close-btn:hover {
     inset 0 0 14px rgba(255, 255, 255, 0.25);
 }
 
-/* 🔥 نبض خفيف عند أول تحميل */
+
 @keyframes pulse {
   0%   { transform: scale(1); }
   50%  { transform: scale(1.08); }
@@ -711,8 +710,6 @@ body.dark-mode .close-btn:hover {
 #visitor-count {
   animation: pulse 1.8s ease-in-out infinite;
 }
-
-
 
 
 
@@ -830,10 +827,11 @@ let count = localStorage.getItem('visitorCount')|| 0;
 
   document.getElementById('visitor-count').innerText = count;
 
+
   if (!localStorage.getItem('visited')) {
-    count = parseInt(count) + 1; // زيادة العداد +1
-    localStorage.setItem('visitorCount', count); // تخزين الرقم
-    localStorage.setItem('visited', 'true'); // علامة الزائر الجديد
+    count = parseInt(count) + 1; 
+    localStorage.setItem('visitorCount', count);
+    localStorage.setItem('visited', 'true');
     document.getElementById('visitor-count').innerText = count;
   }
 
@@ -890,6 +888,7 @@ function createFloatingHeart(){
 
   const colors = ['#ff4d4d', '#ff66cc', '#ff9933', '#66ccff', '#cc66ff'];
   heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
 
   const randX = (Math.random() * 60) - 30 + 'px';
   const randScale = (Math.random() * 0.5 + 0.8);
@@ -968,6 +967,5 @@ const toggleBtn = document.getElementById('darkModeToggle');
 
 </script>
 </html>
-
 
 
