@@ -827,11 +827,9 @@ body.dark-mode .close-btn:hover {
 
 
 let count = localStorage.getItem('visitorCount')|| 0;
-count=parseInt(count)+10;
 
   document.getElementById('visitor-count').innerText = count;
 
-  // تحقق إذا هذا الزائر جديد
   if (!localStorage.getItem('visited')) {
     count = parseInt(count) + 1; // زيادة العداد +1
     localStorage.setItem('visitorCount', count); // تخزين الرقم
@@ -890,23 +888,18 @@ function createFloatingHeart(){
   const heart = document.createElement('i');
   heart.className = 'fa-solid fa-heart heart-pop';
 
-  // ألوان عشوائية
   const colors = ['#ff4d4d', '#ff66cc', '#ff9933', '#66ccff', '#cc66ff'];
   heart.style.color = colors[Math.floor(Math.random() * colors.length)];
 
-  // موقع وحجم عشوائي
   const randX = (Math.random() * 60) - 30 + 'px';
   const randScale = (Math.random() * 0.5 + 0.8);
   heart.style.setProperty('--randX', randX);
   heart.style.setProperty('--randScale', randScale);
 
-  // إضافة القلب إلى الزر
   likeBtn.appendChild(heart);
 
-  // حذف القلب عند النقر عليه
   heart.addEventListener('click', () => heart.remove());
 
-  // إزالة القلب بعد انتهاء الحركة
   setTimeout(() => heart.remove(), 1000);
 }
 
@@ -975,5 +968,6 @@ const toggleBtn = document.getElementById('darkModeToggle');
 
 </script>
 </html>
+
 
 
