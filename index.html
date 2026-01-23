@@ -18,6 +18,40 @@
 <style>
 
 
+/*
+
+.toggle-btn {
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background: #f0f0f0;
+  color: #333;
+  font-size: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.toggle-btn:hover {
+  background: #54a0ff;
+  color: white;
+  box-shadow: 0 0 10px #54a0ff, 0 0 20px #54a0ff;
+}
+
+
+body.dark-mode .toggle-btn {
+  background: #333;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(84, 160, 255, 0.3);
+}
+*/
+
+
+
 .toggle-btn {
   top: 20px;
   right: 20px;
@@ -434,7 +468,7 @@ body.dark-mode .popup-content h3 {
   color: #f1f1f1;
 }
 
-
+/* روابط المشاركة */
 body.dark-mode .share-links a {
   background: #2c2c2c;
   color: #e3e3e3;
@@ -549,6 +583,19 @@ body.dark-mode .close-btn:hover {
   position: relative;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 .switch-button .switch-outer input[type="checkbox"] {
   opacity: 0;
   appearance: none;
@@ -606,6 +653,77 @@ body.dark-mode .close-btn:hover {
   content:"🌙";
 }
 
+
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+
+
+.modal-content {
+    background: #ffffff;
+    width: 340px;
+    padding: 24px 22px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    text-align: center;
+    animation: modalFade 0.35s ease forwards;
+}
+
+
+.modal-content h3 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+
+.modal-content p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+
+.close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #aaa;
+    transition: 0.2s;
+}
+
+.close:hover {
+    color: #111;
+}
+
+
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+
 </style>
 
 
@@ -613,7 +731,13 @@ body.dark-mode .close-btn:hover {
 <body>
 
     <div class="contaner">
-    <div class="box">
+
+        <div class="box">
+
+
+
+
+
 
 <label class="switch-button" for="switch">
   <div class="switch-outer">
@@ -624,6 +748,9 @@ body.dark-mode .close-btn:hover {
     </div>
   </div>
 </label>
+
+
+
 
 <div id="sharePopup" class="popup-overlay">
   <div class="popup-content">
@@ -641,6 +768,7 @@ body.dark-mode .close-btn:hover {
 
 
 <!--<img src="https://visitor-badge.laobi.icu/badge?page_id=BelarbiBoumediene-dev.visitor" alt="Visitors" >-->
+  <div id="visitorContainer" style="display: none;"></div>
 
 
 
@@ -666,6 +794,21 @@ body.dark-mode .close-btn:hover {
         <img src="https://i.postimg.cc/jdQ8bKgW/gmail.png">
     </div>
 
+
+	<div class="s_img" id="autre">
+        <img src="https://i.postimg.cc/Hn9ksnj5/ellipse.png">
+    </div>
+
+
+</div>
+
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Information</h3>
+        <p>Cette fonctionnalité n’est pas disponible pour le moment.</p>
+    </div>
 </div>
 
 
@@ -702,8 +845,22 @@ body.dark-mode .close-btn:hover {
 </body>
 
 <script>
+const modal = document.getElementById("modal");
+const btn = document.getElementById("autre");
+const close = document.querySelector(".close");
+
+btn.onclick = () => modal.style.display = "block";
+close.onclick = () => modal.style.display = "none";
+
+window.onclick = (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
 
  const switchInput = document.getElementById('switch');
+
   switchInput.addEventListener('change', () => {
     document.body.classList.toggle('dark-mode');
 
@@ -711,6 +868,8 @@ body.dark-mode .close-btn:hover {
 
     console.log("Current Mode:", emoji);
   });
+
+
 
   document.getElementById("facebook").onclick = function () {
     window.open("https://www.facebook.com/profile.php?id=61577435015384", "_blank");
@@ -763,6 +922,22 @@ function createFloatingHeart(){
   setTimeout(() => heart.remove(), 1000);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  const hasVisited = sessionStorage.getItem("visited");
   if (!hasVisited) {
     const img = document.createElement("img");
@@ -771,6 +946,15 @@ function createFloatingHeart(){
     document.getElementById("visitorContainer").appendChild(img);
     sessionStorage.setItem("visited", "true");
   }
+
+
+
+
+
+
+
+
+
 
   function openSharePopup() {
     document.getElementById("sharePopup").style.display = "flex";
@@ -786,10 +970,14 @@ function createFloatingHeart(){
       .catch(() => alert(" Failed to copy"));
   }
 
+
+
 const toggleBtn = document.getElementById('darkModeToggle');
 
- toggleBtn.addEventListener('click', () => {
- document.body.classList.toggle('dark-mode');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+ 
     if (document.body.classList.contains('dark-mode')) {
       toggleBtn.textContent = '☀️';
     } else {
@@ -799,4 +987,5 @@ const toggleBtn = document.getElementById('darkModeToggle');
 
 </script>
 </html>
+
 
