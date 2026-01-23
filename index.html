@@ -655,6 +655,68 @@ body.dark-mode .close-btn:hover {
 }
 
 
+
+
+
+#visitor-count {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.25),
+    rgba(76, 175, 80, 0.1)
+  );
+
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #2e7d32;
+
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(76, 175, 80, 0.35);
+
+  box-shadow:
+    0 4px 15px rgba(76, 175, 80, 0.35),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+
+  cursor: default;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  z-index: 10;
+}
+
+/* ✨ حركة بسيطة تجذب الانتباه */
+#visitor-count:hover {
+  transform: scale(1.07);
+  box-shadow:
+    0 6px 22px rgba(76, 175, 80, 0.55),
+    inset 0 0 14px rgba(255, 255, 255, 0.25);
+}
+
+/* 🔥 نبض خفيف عند أول تحميل */
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+#visitor-count {
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+
+
+
+
+
 </style>
 
 
@@ -665,6 +727,12 @@ body.dark-mode .close-btn:hover {
 
         <div class="box">
 
+<span id="visitor-count">0</span>
+
+
+
+
+
 <label class="switch-button" for="switch">
   <div class="switch-outer">
     <input id="switch" type="checkbox">
@@ -674,6 +742,7 @@ body.dark-mode .close-btn:hover {
     </div>
   </div>
 </label>
+
 
 
 
@@ -755,6 +824,23 @@ body.dark-mode .close-btn:hover {
 </body>
 
 <script>
+
+
+let count = localStorage.getItem('visitorCount')|| 0;
+count=parseInt(count)+10;
+
+  document.getElementById('visitor-count').innerText = count;
+
+  // تحقق إذا هذا الزائر جديد
+  if (!localStorage.getItem('visited')) {
+    count = parseInt(count) + 1; // زيادة العداد +1
+    localStorage.setItem('visitorCount', count); // تخزين الرقم
+    localStorage.setItem('visited', 'true'); // علامة الزائر الجديد
+    document.getElementById('visitor-count').innerText = count;
+  }
+
+
+
 
 
  const switchInput = document.getElementById('switch');
